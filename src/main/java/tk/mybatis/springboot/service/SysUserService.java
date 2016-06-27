@@ -3,6 +3,8 @@ package tk.mybatis.springboot.service;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.springboot.model.SysUser;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -14,5 +16,7 @@ public interface SysUserService {
     SysUser selectByPrimaryKey(Long id);
 
     SysUser selectByUserNameAndPassword(SysUser sysUser);
+
+    List<SysUser> selectAll( );
 
 }

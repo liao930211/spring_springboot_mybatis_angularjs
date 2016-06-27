@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--suppress SqlNoDataSourceInspection -->
 <mapper namespace="tk.mybatis.springboot.mapper.SysUserMapper" >
     <resultMap id="BaseResultMap" type="tk.mybatis.springboot.model.SysUser" >
         <id column="ID" property="id" jdbcType="BIGINT" />
         <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
         <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
+        <collection property="userInfos" column="sys_user_id" ofType="tk.mybatis.springboot.model.UserInfo" >
+            <result column="infoUserType" property="usertype" jdbcType="VARCHAR" />
+            <result column="infoPassWord"  property="password" jdbcType="VARCHAR" />
+        </collection>
+
+
     </resultMap>
     <sql id="Base_Column_List" >
         ID, USER_NAME, USER_PASSWORD
@@ -68,4 +75,25 @@
         USER_PASSWORD = #{userPassword,jdbcType=VARCHAR}
         where ID = #{id,jdbcType=BIGINT}
     </update>
+
+    <select id="selectByUserNameAndPassword" resultMap="BaseResultMap" parameterType="tk.mybatis.springboot.model.SysUser">
+        SELECT s1.ID,s1.USER_NAME,u1.usertype as infoUserType,u1.username as infoPassWord
+          FROM sys_user s1 LEFT OUTER  JOIN  user_info u1   ON (s1.ID = u1.sys_user_id)
+
+          <where>
+              <if test="null != id">
+                  s1.ID = #{id}
+              </if>
+              <if test="null != ids">
+               AND s1.ID IN
+                  <foreach item="item" index="index" collection="ids"
+                           open="(" separator="," close=")">
+                      #{item}
+                  </foreach>
+              </if>
+              <if test="null != userName">
+                AND  u1.username LIKE  CONCAT('%',#{userName},'%')
+              </if>
+          </where>
+    </select>
 </mapper>

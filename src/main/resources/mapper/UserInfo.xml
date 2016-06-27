@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--suppress SqlNoDataSourceInspection -->
+<mapper namespace="tk.mybatis.springboot.mapper.UserInfoMapper" >
+    <resultMap id="BaseResultMap" type="tk.mybatis.springboot.model.UserInfo" >
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="infoPassWord" property="userName" jdbcType="VARCHAR" />
+        <result column="infoUserName" property="userPassword" jdbcType="VARCHAR" />
+    </resultMap>
+
+</mapper>

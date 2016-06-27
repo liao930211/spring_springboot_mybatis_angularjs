@@ -42,12 +42,12 @@ public class UserInfoService {
     @Autowired
     private UserInfoMapper userInfoMapper;
 
-    public List<UserInfo> getAll(UserInfo UserInfo) {
-        if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
-            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows(), "id");
-        }
-        return userInfoMapper.selectAll();
-    }
+//    public List<UserInfo> getAll(UserInfo UserInfo) {
+//        if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
+//            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows(), "id");
+//        }
+//        return userInfoMapper.selectAll();
+//    }
 
     public UserInfo getById(Integer id) {
         return userInfoMapper.selectByPrimaryKey(id);

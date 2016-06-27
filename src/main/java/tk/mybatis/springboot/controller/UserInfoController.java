@@ -47,12 +47,12 @@ public class UserInfoController {
 
     @Autowired
     private UserInfoService userInfoService;
-
-    @RequestMapping
-    public PageInfo<UserInfo> getAll(UserInfo userInfo) {
-        List<UserInfo> userInfoList = userInfoService.getAll(userInfo);
-        return new PageInfo<UserInfo>(userInfoList);
-    }
+//
+//    @RequestMapping
+//    public PageInfo<UserInfo> getAll(UserInfo userInfo) {
+//        List<UserInfo> userInfoList = userInfoService.getAll(userInfo);
+//        return new PageInfo<UserInfo>(userInfoList);
+//    }
 
     @RequestMapping(value = "/add")
     public UserInfo add() {

@@ -19,7 +19,7 @@ spring:
         name: test
         url: jdbc:mysql://127.0.0.1:3306/lh_01
         username: root
-        password: root
+        password:
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
 #        dataSourceClassName: com.alibaba.druid.pool.DruidDataSource

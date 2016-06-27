@@ -24,13 +24,15 @@
 
 package tk.mybatis.springboot.model;
 
+import tk.mybatis.springboot.common.BaseModel;
+
 /**
  * 用户信息
  *
- * @author liuzh
+ * @author
  * @since 2016-01-31 21:39
  */
-public class UserInfo extends BaseEntity {
+public class UserInfo extends BaseModel {
     private String username;
     private String password;
     private String usertype;
@@ -38,6 +40,15 @@ public class UserInfo extends BaseEntity {
     private String qq;
     private String email;
     private String tel;
+    private Long sysUserId;
+
+    public Long getSysUserId() {
+        return sysUserId;
+    }
+
+    public void setSysUserId(Long sysUserId) {
+        this.sysUserId = sysUserId;
+    }
 
     public String getUsername() {
         return username;

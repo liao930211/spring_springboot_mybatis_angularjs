@@ -60,6 +60,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 //        configurer.setTemplateLoaderPath("/WEB-INF/");
 //        return configurer;
 //    }
-       @Bean
+
 
 }

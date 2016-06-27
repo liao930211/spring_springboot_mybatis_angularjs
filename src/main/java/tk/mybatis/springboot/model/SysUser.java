@@ -2,6 +2,8 @@ package tk.mybatis.springboot.model;
 
 import tk.mybatis.springboot.common.BaseModel;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -10,10 +12,29 @@ import tk.mybatis.springboot.common.BaseModel;
  */
 public class SysUser extends BaseModel  {
 
-
     private String userName;
 
     private String userPassword;
+
+    private List<UserInfo> userInfos;
+
+    private List<Long> ids;
+
+    public List<Long> getIds() {
+        return ids;
+    }
+
+    public void setIds(List<Long> ids) {
+        this.ids = ids;
+    }
+
+    public List<UserInfo> getUserInfos() {
+        return userInfos;
+    }
+
+    public void setUserInfos(List<UserInfo> userInfos) {
+        this.userInfos = userInfos;
+    }
 
     public String getUserName() {
         return userName;

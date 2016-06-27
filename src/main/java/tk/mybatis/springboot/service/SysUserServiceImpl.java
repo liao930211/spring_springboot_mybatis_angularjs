@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.springboot.mapper.SysUserMapper;
 import tk.mybatis.springboot.model.SysUser;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -28,5 +30,10 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public SysUser selectByUserNameAndPassword(SysUser sysUser) {
        return sysUserMapper.selectByUserNameAndPassword(sysUser);
+    }
+
+    @Override
+    public List<SysUser> selectAll() {
+        return sysUserMapper.selectAll();
     }
 }

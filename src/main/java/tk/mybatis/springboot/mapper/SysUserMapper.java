@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 import tk.mybatis.springboot.model.SysUser;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -14,8 +16,10 @@ public interface SysUserMapper {
 
     SysUser selectByPrimaryKey(Long id);
 
-    @Select(" select s.id AS id, s.user_name as userName, s.user_password as userPassword  FROM   sys_user  s where ID = #{id}")
+
     SysUser selectByUserNameAndPassword(SysUser sysUser);
 
+    @Select("SELECT s1.ID as id,s1.USER_NAME as userName ,s1.USER_PASSWORD as userPassWord FROM sys_user s1")
+    List<SysUser> selectAll( );
 
 }
